@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kétsia & Micaela</title>
+  <link rel="icon" type="image/jpeg" href="img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!--META TAG DE OG-->
+    <meta property="og:type" content="Website"/>
+    <meta property="og:title" content="Convite de aniversário"/>
+    <meta property="og:image" content="">
+    <meta property="og:description" content="Convite interativo para a nossa festa de anos."/>
+    <meta property="og:site_name" content="Convite de aniversário"/>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#09090B',
+            turquoise: { DEFAULT: '#40E0D0', dark: '#00CED1' },
+          },
+          fontFamily: {
+            display: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-ink text-zinc-100 font-sans antialiased overflow-x-hidden">
+  <!-- Tela de boas-vindas -->
+  <section id="welcome" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-ink transition-opacity duration-700">
+    <button
+      type="button"
+      id="welcome-btn"
+      class="pulse-glow relative px-10 py-4 rounded-full border border-turquoise/60 bg-zinc-950/80 text-turquoise font-semibold text-lg tracking-wide shadow-[0_0_40px_rgba(64,224,208,0.35)] hover:scale-105 transition-transform duration-300"
+      aria-label="Abrir convite"
+    >
+      Clique aqui
+    </button>
+  </section>
+
+  <!-- Convite -->
+  <main id="invite" class="invite-hidden min-h-screen opacity-0 pointer-events-none transition-opacity duration-1000 ease-out">
+    <div class="relative max-w-3xl mx-auto px-5 py-12 md:py-16 space-y-10 md:space-y-12">
+      <header class="text-center space-y-3 reveal">
+        <p class="text-turquoise/90 text-sm uppercase tracking-[0.35em]">Convite especial</p>
+        <h1 class="font-display text-3xl md:text-4xl lg:text-5xl text-white leading-tight">
+          Kétsia & Micaela
+        </h1>
+        <p class="text-zinc-400 text-sm">18 anos</p>
+      </header>
+
+      <p class="text-center text-zinc-300 text-base md:text-lg leading-relaxed reveal reveal-delay-1">
+        É com muita alegria que Kétsia e Micaela Freitas convidam você para celebrar os seus 18 anos,
+        numa noite repleta de alegria, carinho, boa música, elegância e momentos inesquecíveis.
+      </p>
+
+      <!-- Evento -->
+      <section class="reveal reveal-delay-2 rounded-2xl border border-zinc-800/80 bg-zinc-950/60 backdrop-blur-sm p-6 md:p-8 space-y-5">
+        <h2 class="font-display text-xl text-turquoise text-center">Detalhes do evento</h2>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-4">
+            <span class="icon-wrap" aria-hidden="true">
+              <svg class="w-5 h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            </span>
+            <div>
+              <p class="text-xs uppercase tracking-wider text-zinc-500">Data</p>
+              <p class="text-white font-medium">Sábado, 26 de Setembro de 2026</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="icon-wrap" aria-hidden="true">
+              <svg class="w-5 h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </span>
+            <div>
+              <p class="text-xs uppercase tracking-wider text-zinc-500">Horário</p>
+              <p class="text-white font-medium">18h00</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="icon-wrap" aria-hidden="true">
+              <svg class="w-5 h-5 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </span>
+            <div class="flex-1 min-w-0">
+              <p class="text-xs uppercase tracking-wider text-zinc-500">Local</p>
+              <p id="venue-address" class="text-white font-medium mt-0.5">
+               Condomínio Girassol, casa 1363
+              </p>
+              <div class="flex flex-wrap items-center gap-2 mt-2">
+                <button
+                  type="button"
+                  id="toggle-map-btn"
+                  class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-turquoise border border-turquoise/40 bg-turquoise/5 hover:bg-turquoise/15 hover:border-turquoise/60 transition-all duration-300"
+                  aria-expanded="false"
+                  aria-controls="map-panel"
+                >
+                  <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                  </svg>
+                  <span id="toggle-map-label">Abrir mapa incorporado</span>
+                </button>
+                <a
+                  id="maps-external-link"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1 text-xs text-zinc-500 hover:text-turquoise transition-colors"
+                >
+                  Abrir no Google Maps
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+              <div id="map-panel" class="map-panel" hidden>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63064.52132558014!2d13.298893481284937!3d-8.922970853121983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a51f7a41acbe2eb%3A0x3bea673924b4e5ed!2sCondom%C3%ADnio%20Girasol%20-Casa!5e0!3m2!1spt-BR!2sus!4v1785596165732!5m2!1spt-BR!2sus"
+                  id="venue-map"
+                  title="Localização do evento no Google Maps"
+                  class="map-iframe"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Dress code -->
+      <section class="reveal reveal-delay-3 space-y-5">
+        <div class="rounded-2xl border border-turquoise/30 bg-gradient-to-b from-turquoise/5 to-transparent p-6 md:p-8">
+          <h2 class="font-display text-xl text-center text-white mb-2">Dress code</h2>
+          <p class="text-center text-zinc-400 text-sm md:text-base mb-6">
+            Estilo social elegante. Evite cores que compitam com a paleta da festa priorize preto, branco e tons neutros com detalhes discretos.
+          </p>
+          <div class="dress-carousel relative">
+            <button type="button" class="carousel-btn carousel-prev" aria-label="Anterior">‹</button>
+            <div class="carousel-track overflow-hidden rounded-xl">
+              <div class="carousel-inner flex transition-transform duration-500 ease-out">
+                <figure class="carousel-slide min-w-full">
+                  <img src="https://i.pinimg.com/1200x/db/73/0d/db730d6d0d7a10ced8705bda59455786.jpg" alt="Referência traje elegante 1" class="w-full h-48 md:h-56 object-contain" loading="lazy" />
+                  <figcaption class="text-center text-xs text-zinc-500 mt-2">Social elegante — feminino</figcaption>
+                </figure>
+                <figure class="carousel-slide min-w-full">
+                  <img src="https://i.pinimg.com/1200x/51/ab/0f/51ab0f4b609e5fc9d7e9d89db70594c7.jpg" alt="Referência traje elegante 2" class="w-full h-48 md:h-56 object-contain" loading="lazy" />
+                  <figcaption class="text-center text-xs text-zinc-500 mt-2">Social elegante — masculino</figcaption>
+                </figure>
+              </div>
+            </div>
+            <button type="button" class="carousel-btn carousel-next" aria-label="Próximo">›</button>
+            <div class="carousel-dots flex justify-center gap-2 mt-4"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RSVP -->
+      <section class="reveal reveal-delay-4 space-y-4">
+        <h2 class="font-display text-lg text-center text-zinc-200">Confirme sua presença</h2>
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+          <a
+            id="rsvp-ketsia"
+            href="#"
+            class="btn-whatsapp flex items-center justify-center gap-2 flex-1 sm:flex-none sm:min-w-[220px] px-6 py-3.5 rounded-xl bg-turquoise text-ink font-semibold hover:bg-turquoise-dark hover:shadow-[0_0_24px_rgba(64,224,208,0.4)] transition-all duration-300"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Confirmar com Kétsia
+          </a>
+          <a
+            id="rsvp-micaela"
+            href="#"
+            class="btn-whatsapp flex items-center justify-center gap-2 flex-1 sm:flex-none sm:min-w-[220px] px-6 py-3.5 rounded-xl border-2 border-turquoise text-turquoise font-semibold hover:bg-turquoise/10 hover:shadow-[0_0_24px_rgba(64,224,208,0.25)] transition-all duration-300"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Confirmar com Micaela
+          </a>
+        </div>
+      </section>
+
+      <footer class="reveal reveal-delay-5 pt-8 pb-10 text-center border-t border-zinc-800/60">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-xl mx-auto">
+          <span
+            class="footer-icon-badge flex items-center justify-center w-12 h-12 rounded-full bg-turquoise/10 border border-turquoise/30 shadow-[0_0_20px_rgba(64,224,208,0.15)] shrink-0"
+            aria-hidden="true"
+          >
+            <svg class="w-6 h-6 text-turquoise" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M21 11.5v8.25a1.5 1.5 0 01-1.5 1.5H4.5a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875v16.5M12 4.875a2.625 2.625 0 100-5.25 2.625 2.625 0 000 5.25zm0 0a2.625 2.625 0 013.75 0M12 4.875a2.625 2.625 0 00-3.75 0M3.75 11.25h16.5" />
+            </svg>
+          </span>
+          <p class="text-zinc-400 text-sm md:text-base leading-relaxed text-balance">
+            A sua presença é o nosso maior presente, mas, caso deseje, não se esqueça do nosso.
+          </p>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+
+
