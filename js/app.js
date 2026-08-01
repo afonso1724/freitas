@@ -4,12 +4,12 @@
 
   
   const WHATSAPP = {
-    ketsia: '938214731',
-    micaela: '990418488',
+    ketsia: '244938214731',
+    micaela: '244990418488',
   };
 
   const RSVP_MESSAGE =
-    'Saudações! Venho por esta menssagem confirmar a minha presença na tua festa de anos.';
+    'Saudações! Venho por esta mensagem confirmar a minha presença na tua festa de anos.';
 
   const VENUE_ADDRESS = 'Condomínio Girassol, casa 1363';
 
